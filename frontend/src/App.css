@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(to right, #e91e63, #673ab7);
+}
+
+.heading {
+    font-family: "Brush Script MT", sans-serif;
+    background: linear-gradient(to top, #ffe838, #fd57bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4.7rem;
+}
+@media screen and (max-width: 550px) {
+    .heading{
+        font-size: 4.3rem;
+    }
+}
+@media screen and (max-width: 505px) {
+    .heading{
+        font-size: 3.8rem;
+    }
+}
+@media screen and (max-width: 451px) {
+    .heading{
+        font-size: 3rem;
+    }
+}
+
+.headingL {
+    font-family: "Brush Script MT", sans-serif;
+    background: linear-gradient(to top, #ffe838, #fd57bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.8rem;
+}
+@media screen and (max-width: 800px) {
+    .headingL{
+        font-size: 3.8rem;
+    }
+}
+@media screen and (max-width: 655px) {
+    .headingL{
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 570px) {
+    .headingL{
+        font-size: 2.5rem;
+    }
+}
+@media screen and (max-width: 450px) {
+    .headingL{
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 385px) {
+    .headingL{
+        font-size: 1.5rem;
+    }
+} 
+@media screen and (max-width: 385px) {
+    .headingL{
+        font-size: 1.5rem;
+    }
+} 
+@media screen and (max-width: 320px) {
+    .headingL{
+        font-size: 1rem;
+    }
+} 
+
+@media screen and (max-width: 688px) {
+    .search{
+        display: none;
+    }
+}
+
+.header {
+    background: linear-gradient(to right, #bb154c, #381574);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    min-height: screen;
+
+}
+
+.shadow {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.281);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
