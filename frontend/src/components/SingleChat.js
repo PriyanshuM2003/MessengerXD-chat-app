@@ -1,5 +1,5 @@
-import { ArrowBackIcon } from '@chakra-ui/icons';
-import { Box, FormControl, IconButton, Input, Spinner, Text, useToast } from '@chakra-ui/react';
+import { MdArrowBack } from 'react-icons/md';
+import { Box, FormControl, IconButton, Input, Icon, Spinner, Text, useToast } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { getSender, getFullSender } from '../config/ChatLogics';
 import { ChatState } from '../Context/ChatProvider';
@@ -73,11 +73,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         socket.on('connected', () => setSocketConnected(true))
         socket.on('typing', () => setIsTyping(true));
         socket.on('stop typing', () => setIsTyping(false));
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         fetchMessages();
         selectedChatCompare = selectedChat;
+        // eslint-disable-next-line
     }, [selectedChat])
 
     const sendMessage = async (event) => {
@@ -169,7 +171,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                                 bg: '#ded30d'
                             }}
                             d={{ base: 'flex', md: 'none' }}
-                            icon={<ArrowBackIcon />}
+                            icon={<Icon fontSize='2xl' as={MdArrowBack} />}
                             onClick={() => setSelectedChat("")}
                         />
                         {!selectedChat.isGroupChat ? (

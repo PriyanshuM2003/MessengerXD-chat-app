@@ -7,16 +7,15 @@ import {
     InputRightElement,
     InputGroup,
     Input,
-    Checkbox,
+    Icon,
     Stack,
-    Link,
     Button,
     Heading,
     useToast,
     useColorModeValue,
 } from '@chakra-ui/react';
 import { useState } from 'react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -114,19 +113,12 @@ const Login = () => {
                                             onClick={() =>
                                                 setShowPassword((showPassword) => !showPassword)
                                             }>
-                                            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                            {showPassword ? <Icon fontSize='xl' as={AiFillEye} /> : <Icon fontSize='xl' as={AiFillEyeInvisible} />}
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
                             </FormControl>
                             <Stack spacing={10}>
-                                {/* <Stack
-                                    direction={{ base: 'column', sm: 'row' }}
-                                    align={'start'}
-                                    justify={'space-between'}>
-                                    <Checkbox>Remember me</Checkbox>
-                                    <Link color={'blue.400'}>Forgot password?</Link>
-                                </Stack> */}
                                 <Button
                                     bg={'blue.500'}
                                     color={'white'}

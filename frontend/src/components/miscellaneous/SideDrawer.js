@@ -19,11 +19,12 @@ import {
     DrawerContent,
     DrawerCloseButton,
     Input,
+    Icon,
     useToast,
     Spinner,
 
 } from '@chakra-ui/react';
-import { ChatIcon } from '@chakra-ui/icons';
+import { TbMessage } from 'react-icons/tb';
 import { ChatState } from '../../Context/ChatProvider';
 import ProfileModal from './ProfileModal';
 import { useHistory } from 'react-router-dom';
@@ -140,7 +141,7 @@ const SideDrawer = () => {
                                         count={notification.length}
                                         effect={Effect.SCALE}
                                     />
-                                    <ChatIcon fontSize='2xl' color='white' />
+                                    <Icon fontSize='3xl' mt='1' color='white' as={TbMessage} />
                                 </MenuButton>
                                 <MenuList px={2}>
                                     {!notification.length && "No new messages"}

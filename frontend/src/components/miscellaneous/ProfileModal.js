@@ -1,4 +1,4 @@
-import { ViewIcon } from '@chakra-ui/icons';
+import { FaUser } from 'react-icons/fa';
 import {
     IconButton,
     useDisclosure,
@@ -6,12 +6,10 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
-    useToast,
     ModalCloseButton,
-    Button,
     Image,
+    Icon,
     Text,
 } from '@chakra-ui/react';
 import React from 'react'
@@ -24,13 +22,13 @@ const ProfileModal = ({ user, children }) => {
             {
                 children ? (<span onClick={onOpen}>{children}</span>) : (
                     <IconButton
-                        fontSize='xl'
+                        fontSize='2xl'
                         _hover={{
                             bg: '#ded30d'
                         }}
                         display={{ base: "flex" }}
                         onClick={onOpen}
-                        icon={<ViewIcon />}
+                        icon={<Icon as={FaUser} />}
                     />
                 )
             }

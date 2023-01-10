@@ -13,15 +13,17 @@ import {
     Text,
     useColorModeValue,
     Link,
+    Icon,
     useToast
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import Axios from 'axios';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [showCPassword, setShowCPassword] = useState(false);
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -179,7 +181,7 @@ const SignUp = () => {
                                             onClick={() =>
                                                 setShowPassword((showPassword) => !showPassword)
                                             }>
-                                            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                            {showPassword ? <Icon fontSize='xl' as={AiFillEye} /> : <Icon fontSize='xl' as={AiFillEyeInvisible} />}
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
@@ -187,7 +189,7 @@ const SignUp = () => {
                             <FormControl id="cpassword" isRequired>
                                 <FormLabel>Confirm Password</FormLabel>
                                 <InputGroup>
-                                    <Input type={showPassword ? 'text' : 'password'}
+                                    <Input type={showCPassword ? 'text' : 'password'}
                                         value={cpassword}
                                         placeholder='Confirm password'
                                         onChange={(e) => setCPassword(e.target.value)} />
@@ -195,9 +197,9 @@ const SignUp = () => {
                                         <Button
                                             variant={'ghost'}
                                             onClick={() =>
-                                                setShowPassword((showPassword) => !showPassword)
+                                                setShowCPassword((showCPassword) => !showCPassword)
                                             }>
-                                            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                            {showCPassword ? <Icon fontSize='xl' as={AiFillEye} /> : <Icon fontSize='xl' as={AiFillEyeInvisible} />}
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>

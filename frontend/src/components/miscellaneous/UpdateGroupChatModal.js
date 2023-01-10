@@ -1,4 +1,5 @@
-import { AddIcon, EditIcon, ViewIcon } from '@chakra-ui/icons'
+import { FaUser } from 'react-icons/fa';
+import { RxUpdate } from 'react-icons/rx';
 import {
     Button, useDisclosure, Modal,
     ModalOverlay,
@@ -10,6 +11,7 @@ import {
     IconButton,
     useToast,
     Box,
+    Icon,
     FormControl,
     Input,
     Spinner,
@@ -185,7 +187,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
 
     return (
         <>
-            <IconButton fontSize='xl' _hover={{ bg: '#ded30d' }} d={{ base: 'flex' }} onClick={onOpen} icon={<ViewIcon />} />
+            <IconButton fontSize='2xl' _hover={{ bg: '#ded30d' }} d={{ base: 'flex' }} onClick={onOpen} icon={<Icon as={FaUser} />} />
 
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
                 <ModalOverlay />
@@ -218,13 +220,13 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
                                 onChange={(e) => setGroupChatName(e.target.value)}
                             />
                             <IconButton
-                                fontSize='xl'
+                                fontSize='2xl'
                                 variant='solid'
                                 colorScheme='teal'
                                 ml='1'
                                 isLoading={renameLoading}
                                 onClick={handleRename}
-                                icon={<EditIcon />}
+                                icon={<Icon as={RxUpdate} />}
                             />
                         </FormControl>
                         <FormControl display='flex'>

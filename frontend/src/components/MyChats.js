@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { ChatState } from '../Context/ChatProvider';
 import Axios from 'axios';
-import { Box, Button, Stack, Text, Tooltip, useToast } from '@chakra-ui/react';
-import { AddIcon, DeleteIcon } from '@chakra-ui/icons';
+import { Box, Button, Stack, Text, Tooltip, useToast, Icon } from '@chakra-ui/react';
+import { MdGroupAdd } from 'react-icons/md'
 import ChatLoading from './ChatLoading';
 import { getSender } from '../config/ChatLogics';
 import GroupChatModal from './miscellaneous/GroupChatModal';
@@ -34,7 +34,6 @@ const MyChats = ({ fetchAgain }) => {
     }
   }
 
-
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
@@ -44,6 +43,7 @@ const MyChats = ({ fetchAgain }) => {
 
   return (
     <>
+
       <Box
         display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
         flexDirection="column"
@@ -75,11 +75,12 @@ const MyChats = ({ fetchAgain }) => {
                   background: '#ded30d',
                 }}
               >
-                <AddIcon />
+                <Icon as={MdGroupAdd} fontSize='3xl' />
               </Button>
             </Tooltip>
           </GroupChatModal>
         </Box>
+
         <Box
           display='flex'
           flexDir='column'
@@ -94,8 +95,6 @@ const MyChats = ({ fetchAgain }) => {
             <Stack overflowY='scroll' scrollBehavior='smooth'>
               {chats.map((chat) => (
                 <Box
-                  display='flex'
-                  justifyContent='space-between'
                   onClick={() => setSelectedChat(chat)}
                   cursor='pointer'
                   bg={selectedChat === chat ? '#ded30d' : 'gray.300'}
@@ -110,8 +109,16 @@ const MyChats = ({ fetchAgain }) => {
                       ? getSender(loggedUser, chat.users)
                       : chat.chatName}
                   </Text>
-                  {/* <DeleteIcon onClick={() => { deleteChats(selectedChat) }} /> */}
+                  {chat.latestMessage && (
+                    <Text fontSize="xs">
+                      <b>{chat.latestMessage.sender.name} : </b>
+                      {chat.latestMessage.content.length > 50
+                        ? chat.latestMessage.content.substring(0, 51) + "..."
+                        : chat.latestMessage.content}
+                    </Text>
+                  )}
                 </Box>
+
               ))}
             </Stack>
           ) : (
