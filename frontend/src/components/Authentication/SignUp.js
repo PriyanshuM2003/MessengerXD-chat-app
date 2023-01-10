@@ -117,8 +117,8 @@ const SignUp = () => {
             })
             localStorage.setItem('userInfo', JSON.stringify(data));
             setPicLoading(false)
-            history.push("/chats")
             window.location.reload()
+            history.push("/chats")
         } catch (error) {
             toast({
                 title: 'Error Occured!',
