@@ -10,6 +10,7 @@ import ScrollableChat from './ScrollableChat';
 import Lottie from 'react-lottie'
 import io from 'socket.io-client'
 import animationData from '../animations/typing.json'
+import "./Styles.css";
 
 const ENDPOINT = "https://messengerxd.onrender.com";
 var socket, selectedChatCompare;

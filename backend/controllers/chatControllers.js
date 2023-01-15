@@ -26,7 +26,7 @@ const accessChat = asyncHandler(async (req, res) => {
         res.send(isChat[0]);
     } else {
         var chatData = {
-            chatName: req.user.name,
+            chatName: "sender",
             isGroupChat: false,
             users: [
                 req.user._id, userId
@@ -82,7 +82,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
         const groupChat = await Chat.create({
             chatName: req.body.name,
             isGroupChat: true,
-            users: req.body.users,
+            users: users,
             groupAdmin: req.user,
         });
         const fullGroupChat = await Chat.findOne({ _id: groupChat._id })

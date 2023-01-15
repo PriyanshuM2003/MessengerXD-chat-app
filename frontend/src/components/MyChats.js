@@ -118,7 +118,6 @@ const MyChats = ({ fetchAgain }) => {
                     </Text>
                   )}
                 </Box>
-
               ))}
             </Stack>
           ) : (

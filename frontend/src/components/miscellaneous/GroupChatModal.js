@@ -38,17 +38,14 @@ const GroupChatModal = ({ children }) => {
         }
         try {
             setLoading(true)
-
             const config = {
                 headers: {
                     Authorization: `Bearer ${user.token}`,
                 }
             };
-
             const { data } = await Axios.get(`/api/user?search=${search}`, config);
             setLoading(false);
             setSearchResult(data);
-
         } catch (error) {
             toast({
                 title: 'Error Occured!',
@@ -144,14 +141,13 @@ const GroupChatModal = ({ children }) => {
                         <Box w='100%' display='flex' flexWrap='wrap'>
                             {selectedUsers.map((u) => (
                                 <UserBadgeItem
-                                    key={user._id}
+                                    key={u._id}
                                     user={u}
                                     handleFunction={() => handleDelete(u)}
                                 />
                             ))}
                         </Box>
-
-                        {loading ? <div>Loading</div> : (
+                        {loading ? <div>Loading...</div> : (
                             searchResult?.slice(0, 4).map((user) => (
                                 <UserListItem
                                     key={user._id}
@@ -161,12 +157,11 @@ const GroupChatModal = ({ children }) => {
                             ))
                         )}
                     </ModalBody>
-
                     <ModalFooter>
                         <Button onClick={handleSubmit} bg='purple' fontWeight='500' color='white' _hover={
                             { background: '#ded30d', color: 'purple' }
                         } mr={3}>
-                            Create
+                            Create Chat
                         </Button>
                     </ModalFooter>
                 </ModalContent>
